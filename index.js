@@ -12,6 +12,15 @@ const logger = reduxLogger.createLogger();
 const BUY_CAKE = 'BUY_CAKE';
 const BUY_ICECREAME = 'BUY_ICECREAME';
 
+const intialCakeState = {
+    numOfCake: 10,
+}
+
+const intialIceCreameState = {
+    numOfIceCreame: 10,
+}
+
+// will return action type
 function buyCake() {
     return{
         type: BUY_CAKE,
@@ -26,14 +35,6 @@ function buyIceCreame() {
 
 // (previousState, action) => newState
 
-const intialCakeState = {
-    numOfCake: 10,
-}
-
-const intialIceCreameState = {
-    numOfIceCreame: 10,
-}
-
 const cakeReducer = (state = intialCakeState, action) => {
     switch(action.type) {
         case BUY_CAKE: return {
@@ -43,7 +44,6 @@ const cakeReducer = (state = intialCakeState, action) => {
         default: return state
     }
 }
-
 const iceCreameReducer = (state = intialIceCreameState, action) => {
     switch(action.type) {
         case BUY_ICECREAME: return {
