@@ -21,6 +21,7 @@ function buyIceCreame() {
 
 const intialState = {
     numOfCake: 10,
+    numOfIceCreame: 10,
 }
 
 const reducer = (state = intialState, action) => {
@@ -29,20 +30,27 @@ const reducer = (state = intialState, action) => {
             ...state,
             numOfCake: state.numOfCake - 1
         }
+        case BUY_ICECREAME: return {
+            ...state,
+            numOfIceCreame: state.numOfIceCreame - 1
+        }
         default: return state
     }
 }
 
 const store = createStore(reducer);
  
-console.log(`Store State: ${store.getState().numOfCake}`);
+console.log(`Store State: ${store.getState()}`);
 
 const unsubscribe = store.subscribe(() => {
-    console.log(`Updated State: ${store.getState().numOfCake}`);
+    console.log(`Updated State: ${store.getState()}`);
 });
 
 store.dispatch(buyCake());
 store.dispatch(buyCake());
 store.dispatch(buyCake());
+store.dispatch(buyIceCreame());
+store.dispatch(buyIceCreame());
+store.dispatch(buyIceCreame());
 
 unsubscribe();
